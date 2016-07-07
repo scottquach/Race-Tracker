@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:id="@+id/teamManagerBackgroundLayout"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.scottquach.racetracker.TeamManager"
+    android:background="@drawable/background_gradient">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button3" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Start Race"
+        android:id="@+id/button3"
+        android:onClick="raceButtonClicked"
+        android:background="@drawable/button_round_selector"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_alignBottom="@+id/listView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        fab:fab_colorNormal="#FF5722"
+        fab:fab_colorPressed="#D84315"
+        fab:fab_colorRipple="#00BCD4"
+        android:src="@drawable/ic_add"
+        android:onClick="addButtonClicked"/>
+
+</RelativeLayout>

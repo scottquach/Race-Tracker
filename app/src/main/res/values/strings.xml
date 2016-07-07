@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Race Tracker</string>
+    <string name="nameOfTeamsKey">nameOfTeamsKey</string>
+
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">true</string>
+    <string name="aboutLibraries_description_text">The simplest way to track races</string>
+    <string name="ButtonNewRaceText">New Race</string>
+    <string name="ButtonLoadTeamText">Load Team</string>
+    <string name="ButtonViewScoresText">View Scores</string>
+    <string name="ButtonSettingsText">Settings</string>
+</resources>
