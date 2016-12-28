@@ -90,6 +90,8 @@ public class TeamManager extends AppCompatActivity {
 
             }
         });
+
+        Toast.makeText(this,"Add the teams here",Toast.LENGTH_SHORT).show();
     }
 
     private void setUpListView(){

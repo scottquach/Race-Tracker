@@ -219,34 +219,38 @@ public class StartMenu extends AppCompatActivity {
                     String json = sharedPref.getString(selectedTeam + "key", null);
                     Type type = new TypeToken<ArrayList<String>>() {}.getType();
                     ArrayList<String> arrayList = gson.fromJson(json, type);
+                    if(arrayList != null){
+                        //open listView alertdialog with scores
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(StartMenu.this);
+                        builder1.setTitle(selectedTeam + " Scores");
+                        final ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(StartMenu.this, android.R.layout.select_dialog_item,arrayList);
+                        builder1.setAdapter(arrayAdapter1, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent openTeamManager = new Intent(StartMenu.this,ScoreTracker.class);
+                                openTeamManager.putExtra("teamName",selectedTeam);
+                                startActivity(openTeamManager);
+                            }
+                        });
+                        builder1.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialog.dismiss();
+                            }
+                        });
+                        builder1.setNegativeButton("Full Page", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent openTeamManager = new Intent(StartMenu.this,ScoreTracker.class);
+                                openTeamManager.putExtra("teamName",selectedTeam);
+                                startActivity(openTeamManager);
+                            }
+                        });
+                        builder1.show();
+                    }else{
+                        Toast.makeText(StartMenu.this, "Score Unavailable", Toast.LENGTH_SHORT).show();
+                    }
 
-                    //open listView alertdialog with scores
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(StartMenu.this);
-                    builder1.setTitle(selectedTeam + " Scores");
-                    final ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(StartMenu.this, android.R.layout.select_dialog_item,arrayList);
-                    builder1.setAdapter(arrayAdapter1, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent openTeamManager = new Intent(StartMenu.this,ScoreTracker.class);
-                            openTeamManager.putExtra("teamName",selectedTeam);
-                            startActivity(openTeamManager);
-                        }
-                    });
-                    builder1.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialog.dismiss();
-                        }
-                    });
-                    builder1.setNegativeButton("Full Page", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent openTeamManager = new Intent(StartMenu.this,ScoreTracker.class);
-                            openTeamManager.putExtra("teamName",selectedTeam);
-                            startActivity(openTeamManager);
-                        }
-                    });
-                    builder1.show();
 
 
 

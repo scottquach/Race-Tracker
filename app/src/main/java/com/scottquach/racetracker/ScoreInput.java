@@ -84,6 +84,8 @@ public class ScoreInput extends AppCompatActivity {
             }
         });
 
+        Toast.makeText(this, "Select team as they finish the race", Toast.LENGTH_SHORT).show();
+
     }
 
     private void setUpListView(){
