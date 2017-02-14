@@ -44,7 +44,7 @@ public class ScoreInput extends AppCompatActivity {
 
         //set ID
         sInputListView = (ListView)findViewById(R.id.scoreInputListView);
-        inputLayout = (RelativeLayout)findViewById(R.id.inputLayout);
+//        inputLayout = (RelativeLayout)findViewById(R.id.inputLayout);
         sharedPref = getSharedPreferences("Array Storage File", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
 
@@ -62,7 +62,7 @@ public class ScoreInput extends AppCompatActivity {
 
                 String team = ((TextView)view).getText().toString();
                 rankArray.add(String.valueOf(rankNumber)+ " -    " + team);
-                Snackbar.make(inputLayout, "Ranked: " + String.valueOf(rankNumber), Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(ScoreInput.this, "Ranked: " + String.valueOf(rankNumber), Toast.LENGTH_SHORT).show();
                 rankNumber++;
                 teamsArray.remove(position);
                 myAdapter.notifyDataSetChanged();
